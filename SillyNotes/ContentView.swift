@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  SillyNotes
 //
-//  Created by Єгор Оводов on 9/4/26.
+//  Created by Yehor on 9/4/26.
 //
 
 import SwiftUI
