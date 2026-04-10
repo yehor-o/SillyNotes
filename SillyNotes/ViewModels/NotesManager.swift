@@ -12,13 +12,20 @@ class NotesManager {
     
     var currentResult: String = "Select note to play!"
     
+    var isSpinning: Bool = false
+    
     func open(note: Note){
-        let win = Wheel.spinWheel(chanceOfWinning: 70)
+        isSpinning = true
         
-        if win{
-            currentResult = note.content
-        } else {
-            currentResult = Scrambler.сruelScramble(input: note.content)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
+            let win = Wheel.spinWheel(chanceOfWinning: 70)
+            
+            if win{
+                self.currentResult = note.content
+            } else {
+                self.currentResult = Scrambler.сruelScramble(input: note.content)
+            }
+            self.isSpinning = false
         }
     }
     
@@ -26,5 +33,9 @@ class NotesManager {
         let newNote = Note(title: title, content: text)
         
         notesList.append(newNote)
+    }
+    
+    func removeNote(at offsets: IndexSet){
+        notesList.remove(atOffsets: offsets)
     }
 }
