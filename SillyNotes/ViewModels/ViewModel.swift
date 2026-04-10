@@ -9,7 +9,7 @@ class NotesManager{
     let notesList: [Note] = Note.exampleNotes
     
     func open(note: Note) -> String{
-        var win = Wheel.spinWheel(chanceOfWinning: 70)
+        var win = Wheel.spinWheel(chanceOfWinning: 60)
         
         if win{
             return note.content
