@@ -9,16 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(Note.exampleNotes) { note in
+                NavigationLink(destination: Text("there will be naked yehor")){
+                    VStack(alignment: .leading) {
+                        Text(note.title)
+                            .font(.headline)
+                        Text(note.content)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        
+                    }
+                    
+                    
+                    
+                    
+                }
+                .navigationTitle("SillyNotes")
+                
+            }
         }
-        .padding()
+        
     }
 }
-
 #Preview {
     ContentView()
 }
+
